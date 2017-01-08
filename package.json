@@ -4,7 +4,8 @@
   "description": "Image poster",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
