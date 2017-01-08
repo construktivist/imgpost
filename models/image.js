@@ -9,7 +9,7 @@ var imageSchema = new Schema({
 	keyword: {
 		type: String
 	},
-	link: {
+	imageURL: {
 		type: String
 	}
 });

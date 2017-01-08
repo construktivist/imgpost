@@ -23,6 +23,7 @@
   "homepage": "https://github.com/construktivist/imgpost#readme",
   "dependencies": {
     "axios": "^0.15.3",
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongoose": "^4.7.6",
