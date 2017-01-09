@@ -24,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.use(express.static("./public"));
+
 //Database connection
 //===================
 mongoose.connect("mongodb://localhost/images");
@@ -39,6 +41,9 @@ db.once("open", function(){
 
 //Routes
 //======
+app.get("/", function(req, res){
+	res.sendFile(__dirname + "/public/index.html");
+})
 
 app.get("/api", function(req, res){
 	Image.find({}).exec(function(err, result){
