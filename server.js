@@ -56,7 +56,7 @@ app.get("/api", function(req, res){
 	});
 });
 
-app.post("/insert", function(req, res){
+app.post("/api", function(req, res){
 
 	req.body.title = "Cute Pig";
 	req.body.imageURL = "https://s-media-cache-ak0.pinimg.com/736x/b1/17/8a/b1178afe6c24d9a36cb5dfcfed630e14.jpg";
