@@ -41,9 +41,9 @@ db.once("open", function(){
 
 //Routes
 //======
-app.get("/", function(req, res){
-	res.sendFile(__dirname + "/public/index.html");
-})
+ app.get("/", function(req, res){
+ 	res.sendFile(__dirname + "/public/index.html");
+ })
 
 app.get("/api", function(req, res){
 	Image.find({}).exec(function(err, result){
@@ -58,18 +58,22 @@ app.get("/api", function(req, res){
 
 app.post("/api", function(req, res){
 
-	req.body.title = "Cute Pig";
-	req.body.imageURL = "https://s-media-cache-ak0.pinimg.com/736x/b1/17/8a/b1178afe6c24d9a36cb5dfcfed630e14.jpg";
-	req.body.keyword = "pig";
+console.log(req.body.postTitle);
+console.log(req.body.postUrl);
 
-	var newImage = Image(req.body);
+	var data = {
+		title: req.body.postTitle,
+		imageURL: req.body.postUrl,
+	 	keyword: req.body.keyword
+	};
+	var newImage = new Image(data);
 
 	newImage.save(function(err){
 		if (err) {
 			console.log(err);
 		}
 		else{
-			res.send("Update successful");
+			res.send("Success!");
 		}
 	});	
 });
