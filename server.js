@@ -8,6 +8,8 @@ var Promise = require("bluebird");
 
 mongoose.Promise = Promise;
 
+var 
+
 var Image = require("./models/image");
 
 
@@ -28,7 +30,7 @@ app.use(express.static("./public"));
 
 //Database connection
 //===================
-mongoose.connect("mongodb://localhost/images");
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/My_Local_DB');
 var db = mongoose.connection;
 
 db.on("error", function(err){
