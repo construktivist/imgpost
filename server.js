@@ -6,9 +6,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var Promise = require("bluebird");
 
-mongoose.Promise = Promise;
-
-var 
+mongoose.Promise = Promise; 
 
 var Image = require("./models/image");
 
