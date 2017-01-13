@@ -58,12 +58,9 @@ app.get("/api", function(req, res){
 
 app.post("/api", function(req, res){
 
-console.log(req.body.postTitle);
-console.log(req.body.postUrl);
-
 	var data = {
-		title: req.body.postTitle,
-		imageURL: req.body.postUrl,
+		title: req.body.title,
+		imageURL: req.body.url,
 	 	keyword: req.body.keyword
 	};
 	var newImage = new Image(data);

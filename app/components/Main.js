@@ -7,14 +7,11 @@ var Main = React.createClass({
 
 	getInitialState: function() {
 		return{
-			postTitle: "",
-			postUrl: "",
-			keyword: "",
 			images: []
 		}
 	},
 
-	componentDidMount: function() {
+	componentWillMount: function() {
 		console.log("Main Component Mounted");
 
 		helpers.getImages()
@@ -25,38 +22,46 @@ var Main = React.createClass({
 			}.bind(this))
 	},
 
-	componentDidUpdate: function(){
-		helpers.postImages(this.state)
-			.then(function(response){
-				console.log("Response: " + response.data);
-
-				// helpers.getImages()
-				// 	.then(function(response){
-				// 		this.setState({
-				// 			images: response.data
-				// 		});	
-				// 	}.bind(this))
-
-			}.bind(this));
-	},
-
-	setTitle: function(title){
+	setImages: function(images){
 		this.setState({
-			postTitle: title
-		})
+			images: images
+		});
 	},
 
-	setLink: function(url){
-		this.setState({
-			postUrl: url
-		})
-	},
+	//componentDidUpdate: function(){
+		
 
-	setKeyword: function(keyword){
-		this.setState({
-			keyword: keyword
-		})
-	},
+	// 	helpers.postImages(this.state)
+	// 		.then(function(response){
+	// 			console.log("Response: " + response.data);
+
+	// 			// helpers.getImages()
+	// 			// 	.then(function(response){
+	// 			// 		this.setState({
+	// 			// 			images: response.data
+	// 			// 		});	
+	// 			// 	}.bind(this))
+
+	// 		}.bind(this));
+	// },
+
+	// setTitle: function(title){
+	// 	this.setState({
+	// 		postTitle: title
+	// 	})
+	// },
+
+	// setLink: function(url){
+	// 	this.setState({
+	// 		postUrl: url
+	// 	})
+	// },
+
+	// setKeyword: function(keyword){
+	// 	this.setState({
+	// 		keyword: keyword
+	// 	})
+	//},
 
 
 	render: function(){
@@ -70,15 +75,13 @@ var Main = React.createClass({
 					</div>					
 				</div>
 				<div className="row">
-					<Form setTitle={this.setTitle} setLink={this.setLink} setKeyword={this.setKeyword}/>
+					<Form setImages={this.setImages}/>
 				</div>
-				<div className="row">
 					{
 						this.state.images.map(function(imageData){
 							return <Image image = {imageData} />
 						})	
 					}
-				</div>
 			</div>
 		)
 	}
