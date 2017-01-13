@@ -28,7 +28,7 @@ app.use(express.static("./public"));
 
 //Database connection
 //===================
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/My_Local_DB');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/My_Local_DB');
 var db = mongoose.connection;
 
 db.on("error", function(err){
